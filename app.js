@@ -49,7 +49,11 @@ const PRESETS = [
     pieces: { wr: 1, wb: 2 },
     bishopParity: [0, 0],
   },
-  { name: "Rook + Knight + Bishop", nameZh: "车 + 马 + 象", pieces: { wr: 1, wn: 1, wb: 1 } },
+  {
+    name: "Rook + Knight + Bishop",
+    nameZh: "车 + 马 + 象",
+    pieces: { wr: 1, wn: 1, wb: 1 },
+  },
   { name: "Rook + Two Knights", nameZh: "车 + 双马", pieces: { wr: 1, wn: 2 } },
   {
     name: "Two Bishops (One Color) + Two Bishops (Other Color)",
@@ -79,7 +83,8 @@ const I18N = {
     clear_board: "清空棋盘",
     bishop_hint: "注：象的颜色由落点格子决定，可自行摆成同色或异色",
     place_title: "放置棋子",
-    place_hint: "提示：选中棋子后点击空白格放置；右键拖拽可画辅助箭头（放置关闭时）",
+    place_hint:
+      "提示：选中棋子后点击空白格放置；右键拖拽可画辅助箭头（放置关闭时）",
     status_title: "状态",
     ops_title: "操作",
     ops_hint1: "拖拽棋子移动；滚轮缩放；按住鼠标中键拖拽平移",
@@ -89,7 +94,7 @@ const I18N = {
     status_missing_white: "缺少白王",
     status_illegal_white: "非法局面（白王被将军）",
     status_illegal_adjacent: "非法局面（王相邻）",
-    status_checkmate: "将死 ✅",
+    status_checkmate: "将死！",
     status_check: "将军",
     status_none: "未将军",
     panel_hide: "隐藏菜单",
@@ -100,9 +105,11 @@ const I18N = {
     preset_label: "Presets",
     load_preset: "Load Preset",
     clear_board: "Clear Board",
-    bishop_hint: "Note: bishop color depends on square color (place as same or opposite).",
+    bishop_hint:
+      "Note: bishop color depends on square color (place as same or opposite).",
     place_title: "Placement",
-    place_hint: "Tip: select a piece then click an empty square to place; right-drag draws arrows (when placement is off).",
+    place_hint:
+      "Tip: select a piece then click an empty square to place; right-drag draws arrows (when placement is off).",
     status_title: "Status",
     ops_title: "Controls",
     ops_hint1: "Drag pieces; wheel to zoom; hold middle mouse to pan",
@@ -112,7 +119,7 @@ const I18N = {
     status_missing_white: "Missing white king",
     status_illegal_white: "Illegal (white king in check)",
     status_illegal_adjacent: "Illegal (kings adjacent)",
-    status_checkmate: "Checkmate ✅",
+    status_checkmate: "Checkmate!",
     status_check: "Check",
     status_none: "No check",
     panel_hide: "Hide Menu",
@@ -121,11 +128,49 @@ const I18N = {
 };
 
 const PLACEMENT_ORDER = [
-  { x: -4, y: 2 }, { x: -3, y: 2 }, { x: -2, y: 2 }, { x: -1, y: 2 }, { x: 0, y: 2 }, { x: 1, y: 2 }, { x: 2, y: 2 }, { x: 3, y: 2 }, { x: 4, y: 2 },
-  { x: -4, y: 1 }, { x: -3, y: 1 }, { x: -2, y: 1 }, { x: -1, y: 1 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
-  { x: -4, y: 0 }, { x: -3, y: 0 }, { x: -2, y: 0 }, { x: -1, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 },
-  { x: -4, y: -1 }, { x: -3, y: -1 }, { x: -2, y: -1 }, { x: -1, y: -1 }, { x: 0, y: -1 }, { x: 1, y: -1 }, { x: 2, y: -1 }, { x: 3, y: -1 }, { x: 4, y: -1 },
-  { x: -4, y: -2 }, { x: -3, y: -2 }, { x: -2, y: -2 }, { x: -1, y: -2 }, { x: 0, y: -2 }, { x: 1, y: -2 }, { x: 2, y: -2 }, { x: 3, y: -2 }, { x: 4, y: -2 },
+  { x: -4, y: 2 },
+  { x: -3, y: 2 },
+  { x: -2, y: 2 },
+  { x: -1, y: 2 },
+  { x: 0, y: 2 },
+  { x: 1, y: 2 },
+  { x: 2, y: 2 },
+  { x: 3, y: 2 },
+  { x: 4, y: 2 },
+  { x: -4, y: 1 },
+  { x: -3, y: 1 },
+  { x: -2, y: 1 },
+  { x: -1, y: 1 },
+  { x: 0, y: 1 },
+  { x: 1, y: 1 },
+  { x: 2, y: 1 },
+  { x: 3, y: 1 },
+  { x: 4, y: 1 },
+  { x: -4, y: 0 },
+  { x: -3, y: 0 },
+  { x: -2, y: 0 },
+  { x: -1, y: 0 },
+  { x: 1, y: 0 },
+  { x: 2, y: 0 },
+  { x: 3, y: 0 },
+  { x: -4, y: -1 },
+  { x: -3, y: -1 },
+  { x: -2, y: -1 },
+  { x: -1, y: -1 },
+  { x: 0, y: -1 },
+  { x: 1, y: -1 },
+  { x: 2, y: -1 },
+  { x: 3, y: -1 },
+  { x: 4, y: -1 },
+  { x: -4, y: -2 },
+  { x: -3, y: -2 },
+  { x: -2, y: -2 },
+  { x: -1, y: -2 },
+  { x: 0, y: -2 },
+  { x: 1, y: -2 },
+  { x: 2, y: -2 },
+  { x: 3, y: -2 },
+  { x: 4, y: -2 },
 ];
 
 const images = {};
@@ -175,7 +220,7 @@ function loadImages() {
         };
         img.src = src;
       });
-    })
+    }),
   );
 }
 
@@ -220,17 +265,25 @@ function draw() {
         screen.x - view.scale / 2,
         screen.y - view.scale / 2,
         view.scale,
-        view.scale
+        view.scale,
       );
 
       if (x === minX || y === maxY) {
         ctx.fillStyle = "#6b5c4f";
         ctx.font = "10px serif";
         if (y === maxY) {
-          ctx.fillText(`${x}`, screen.x - view.scale / 2 + 4, screen.y - view.scale / 2 + 12);
+          ctx.fillText(
+            `${x}`,
+            screen.x - view.scale / 2 + 4,
+            screen.y - view.scale / 2 + 12,
+          );
         }
         if (x === minX) {
-          ctx.fillText(`${y}`, screen.x - view.scale / 2 + 4, screen.y - view.scale / 2 + 12);
+          ctx.fillText(
+            `${y}`,
+            screen.x - view.scale / 2 + 4,
+            screen.y - view.scale / 2 + 12,
+          );
         }
       }
     }
@@ -242,7 +295,12 @@ function draw() {
   });
 
   if (dragging) {
-    drawPieceAtScreen(dragging.screenX, dragging.screenY, dragging.piece.id, 0.9);
+    drawPieceAtScreen(
+      dragging.screenX,
+      dragging.screenY,
+      dragging.piece.id,
+      0.9,
+    );
   }
 
   drawArrows();
@@ -288,11 +346,11 @@ function drawArrows() {
     ctx.moveTo(to.x, to.y);
     ctx.lineTo(
       to.x - headLen * Math.cos(angle - Math.PI / 6),
-      to.y - headLen * Math.sin(angle - Math.PI / 6)
+      to.y - headLen * Math.sin(angle - Math.PI / 6),
     );
     ctx.lineTo(
       to.x - headLen * Math.cos(angle + Math.PI / 6),
-      to.y - headLen * Math.sin(angle + Math.PI / 6)
+      to.y - headLen * Math.sin(angle + Math.PI / 6),
     );
     ctx.closePath();
     ctx.fill();
@@ -619,7 +677,7 @@ function attacksSquare(piece, x, y, ignoreSquares, ignorePieces) {
   const ady = Math.abs(dy);
 
   if (piece.type === "k") {
-    return adx <= 1 && ady <= 1 && (adx + ady > 0);
+    return adx <= 1 && ady <= 1 && adx + ady > 0;
   }
   if (piece.type === "q") {
     if (dx === 0 || dy === 0 || adx === ady) {
