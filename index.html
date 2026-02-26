@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="page_title">Infinity Board Checkmate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="panel" id="sidePanel">
+        <h1 data-i18n="page_title">无限棋盘将死验证</h1>
+
+        <section class="block">
+          <label for="preset" data-i18n="preset_label">预设组合</label>
+          <select id="preset"></select>
+          <button id="loadPreset" data-i18n="load_preset">加载组合</button>
+          <button id="clearBoard" class="ghost" data-i18n="clear_board">清空棋盘</button>
+          <div class="hint" data-i18n="bishop_hint">注：象的颜色由落点格子决定，可自行摆成同色或异色</div>
+        </section>
+
+        <section class="block">
+          <div class="subtitle" data-i18n="place_title">放置棋子</div>
+          <button id="placeToggleBtn" class="ghost toggle-btn">点击空格放置：关</button>
+          <div class="palette" id="palette"></div>
+          <div class="hint" data-i18n="place_hint">提示：选中棋子后点空白格落子；右键可删除棋子</div>
+        </section>
+
+        <section class="block">
+          <div class="subtitle" data-i18n="status_title">状态</div>
+          <div id="status" class="status">未检测</div>
+        </section>
+
+        <section class="block">
+          <div class="subtitle" data-i18n="ops_title">操作</div>
+          <div class="hint" data-i18n="ops_hint1">拖拽棋子移动；滚轮缩放；按住空格拖拽平移</div>
+          <div class="hint" data-i18n="ops_hint2">坐标系：中心为 (0,0)，向右为 +x，向上为 +y</div>
+        </section>
+      </aside>
+
+      <main class="board-wrap">
+        <canvas id="board"></canvas>
+        <div class="overlay">
+          <div class="coords" id="coords">x: 0, y: 0</div>
+        </div>
+        <button id="panelToggle" class="panel-toggle">隐藏菜单</button>
+        <div class="lang-switch">
+          <button id="langToggle">中文 / EN</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
